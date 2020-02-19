@@ -81,4 +81,4 @@ module.exports = {
         }
     ],
     'status' : 'OK'
-}
+};
