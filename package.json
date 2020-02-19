@@ -1,0 +1,24 @@
+{
+  "name": "city-exploer-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avenger0901/city-exploer-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/avenger0901/city-exploer-/issues"
+  },
+  "homepage": "https://github.com/avenger0901/city-exploer-#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "supertest": "^4.0.2"
+  }
+}
