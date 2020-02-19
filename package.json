@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/avenger0901/city-exploer-#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jest": "^25.1.0",
     "supertest": "^4.0.2"
