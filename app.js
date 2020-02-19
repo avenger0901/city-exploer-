@@ -1,8 +1,8 @@
 const express = require('express');
 const data = require('./data/geo.js');
-const weather = require('./data/darksky.js');
+// const weather = require('./data/darksky.js');
 const app = express();
-const request = require('superagent');
+// const request = require('superagent');
 app.get('/location', (req, res) => {
     const cityData = data.results[0];
     res.json({
@@ -16,5 +16,8 @@ app.get('*', (request, response) => {
         onNo: '404'
     });
 });
+// app.get('/weather',(req, res) =>{
+    
+// }
 
 app.listen(3000, () => {console.log('running....');});
