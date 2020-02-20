@@ -62,10 +62,46 @@ app.get('/yelp', async(req, res, next) => {
             };
 
         });
-
-       
         res.json(
             yelpBusiness);
+    } catch (err) {
+        next(err);
+    }
+});
+app.get('/events', async(req, res, next) => {
+    try {
+        const eventful = await request
+            .get(`http://api.eventful.com/json/events/search?app_key=${process.env.EVENTFUL_API_KEY}&where=${lat},${lng}&within=25`);
+        const body = JSON.parse(eventful.text);
+        console.log(body);
+        const eventStuff = body.events.event.map(event => {
+            return {
+                link: event.url,
+                name: event.title,
+                date: event.start_time,
+                summary: event.description,
+            };
+        });
+        res.json(eventStuff);
+    } catch (err) {
+        next(err);
+    }
+});
+app.get('/trails', async(req, res, next) => {
+    try {
+        const trailsData = await request
+            .get(`https://www.hikingproject.com/data/get-trails?lat=${lat}&lon=${lng}&maxDistance=10&key=${process.env.TRAILS_KEY}`);
+        const body = JSON.parse(trailsData.text);
+      
+        const trails = body.trails.map(trail =>{
+            return {
+                name: trail.name,
+                difficulty:trail.difficulty,
+            };
+
+        });
+        res.json(
+            trails);
     } catch (err) {
         next(err);
     }
