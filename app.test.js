@@ -10,7 +10,7 @@ describe('/GET /location', () => {
             // feed our express app to the supertest request
             const response = await request(app)
                 // and hit out express app's about route with a /GET
-                .get('/location/');
+                .get('/location?search=portland/');
             // check to see if the response is what we expect
             expect(response.body).toEqual({
                 formatted_query : expect.any(String),
@@ -32,6 +32,24 @@ describe('/GET /weather', () => {
                 forcast: expect.any(String),
                 time:expect.any(String),
             });
+            expect(response.statusCode).toBe(200);
+          
+            done();
+        });
+});
+describe('/GET /yelp', () => {
+    test('It should respond with an object of the correct shape',
+        async(done) => {
+            const response = await request(app)
+                .get('/yelp/');
+            expect(response.body[0]).toEqual(
+                {
+                    name: expect.any(String),
+                    price:expect.any(String),
+                    rating: expect.any(Number),
+                    url:expect.any(String),
+                }
+            );
             expect(response.statusCode).toBe(200);
           
             done();
