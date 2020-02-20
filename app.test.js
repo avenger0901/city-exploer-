@@ -23,3 +23,17 @@ describe('/GET /location', () => {
             done();
         });
 });
+describe('/GET /weather', () => {
+    test('It should respond with an object of the correct shape',
+        async(done) => {
+            const response = await request(app)
+                .get('/weather/');
+            expect(response.body[0]).toEqual({
+                forcast: expect.any(String),
+                time:expect.any(String),
+            });
+            expect(response.statusCode).toBe(200);
+          
+            done();
+        });
+});
