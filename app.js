@@ -120,4 +120,8 @@ app.get('*', (request, response) => {
         onNo: '404'
     });
 });
-app.listen(3000, () => {console.log('running....');});
+// app.listen(3000, () => {console.log('running....');});
+
+module.exports = {
+    app: app,
+};
