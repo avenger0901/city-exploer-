@@ -96,7 +96,15 @@ app.get('/trails', async(req, res, next) => {
         const trails = body.trails.map(trail =>{
             return {
                 name: trail.name,
-                difficulty:trail.difficulty,
+                location: trail.location,
+                length: trail.length,
+                stars: trail.stars,
+                star_votes: trail.starVotes,
+                summary: trail.summary,
+                trail_url: trail.url,
+                conditions: trail.conditionStatus,
+                condition_date: trail.conditionDate,
+                condition_time: trail.conditionDate,
             };
 
         });
